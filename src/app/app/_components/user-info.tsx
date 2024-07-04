@@ -19,7 +19,7 @@ export function UserInfo({user} : Props) {
     </Avatar>
     <span>{user.email}</span>
 
-    <Button onClick={() => signOut()}>
+    <Button variant="destructive" onClick={() => signOut()}>
       Sign Out
     </Button>
   </div>
