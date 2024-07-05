@@ -16,7 +16,7 @@ export function AuthForm() {
 
       console.log(data)
 
-      await signIn("email", { email: data.email, redirect: false} )
+      await signIn("nodemailer", { email: data.email, redirect: false} )
       toast({
         
         title: "Magic Link Sent",
@@ -46,8 +46,9 @@ export function AuthForm() {
             </Label>
             <Input id="email" type="email" placeholder="Enter your email" required  {...form.register('email')} />
           </div>
-          <Button type="submit" className="w-full">
-            Send Magic Link
+          <Button type="submit" className="w-full" disabled={form.formState.isSubmitting}>
+            {form.formState.isSubmitting ? 'Sending...' : ' Send Magic Link'}
+           
           </Button>
         </form>
       </div>
